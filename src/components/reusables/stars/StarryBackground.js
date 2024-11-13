@@ -13,7 +13,7 @@ const generateBoxShadows = (n, fill) => {
   return shadows.join(', ');
 };
 
-// Star component with upward animation
+// Star component with diagonal downward animation
 const Star = ({ shadows, duration, size }) => (
   <div
     className={`absolute top-0 left-0 rounded-full bg-transparent`}
@@ -21,7 +21,7 @@ const Star = ({ shadows, duration, size }) => (
       width: '1px',
       height: '1px',
       boxShadow: shadows,
-      animation: `upward ${duration}s linear infinite`,
+      animation: `diagonalDownward ${duration}s linear infinite`,
     }}
   >
     <div
@@ -53,9 +53,9 @@ const StarryBackground = ({ fill }) => {
         />
         <style>
           {`
-            @keyframes upward {
-              0% { transform: translateY(0); }
-              100% { transform: translateY(-2000px); }
+            @keyframes diagonalDownward {
+              0% { transform: translateY(0) translateX(0); }
+              100% { transform: translateY(2000px) translateX(2000px); }
             }
           `}
         </style>
@@ -64,13 +64,16 @@ const StarryBackground = ({ fill }) => {
         <Star shadows={starShadows1} duration={50} size={1} />
         <Star shadows={starShadows2} duration={100} size={2} />
         <Star shadows={starShadows3} duration={150} size={3} />
-
         <div className="absolute top-1/2 left-0 right-0 text-center font-light text-[50px] transform -translate-y-1/2 px-2">
           <span className="bg-gradient-to-b from-white to-[#38495a] bg-clip-text text-transparent tracking-[10px]">
             iSANS ORIGINAL
           </span>
+          <p className='text-white text-sm text-center pb-5'>
+          Shop the latest trends with confidence. Every item is 100% authentic,
           <br />
-          <p className=" z-20 flex justify-center">
+           verified by our trusted process. Discover style you can trust—elevate your wardrobe today.
+          </p>
+          <p className="z-20 flex justify-center">
             <ButtonTwo buttonValue="Verify Authenticity" iconValue={<FaQrcode size={20} />} />
           </p>
         </div>
