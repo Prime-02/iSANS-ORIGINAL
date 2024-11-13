@@ -1,75 +1,48 @@
 // components/StarryBackground.js
 import Head from 'next/head';
-import styled, { keyframes } from 'styled-components';
+import { useMemo } from 'react';
 import { ButtonTwo } from '../buttons/Buttons';
 import { FaQrcode } from 'react-icons/fa6';
 
-
-
-// Keyframes for star animation
-const animStar = keyframes`
-  from { transform: translateY(0px); }
-  to { transform: translateY(-2000px); }
-`;
-
-// Styled components for stars and title
-const Stars = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 1px;
-  height: 1px;
-  border-radius: 50px;
-  background: transparent;
-  box-shadow: ${(props) => props.shadows};
-  animation: ${animStar} ${(props) => props.duration}s linear infinite;
-
-  &:after {
-    content: ' ';
-    position: absolute;
-    top: 600px;
-    width: ${(props) => props.size}px;
-    height: ${(props) => props.size}px;
-    background: transparent;
-    box-shadow: ${(props) => props.shadows};
+// Utility function for generating multiple box-shadow values
+const generateBoxShadows = (n, fill) => {
+  let shadows = [];
+  for (let i = 0; i < n; i++) {
+    shadows.push(`${Math.floor(Math.random() * 2000)}px ${Math.floor(Math.random() * 2000)}px ${fill}`);
   }
-`;
+  return shadows.join(', ');
+};
 
-const Title = styled.div`
-  position: absolute;
-  top: 50%;
-  left: 0;
-  right: 0;
-//   color: #fff;
-  text-align: center;
-  font-family: 'Lato', sans-serif;
-  font-weight: 300;
-  font-size: 50px;
-  margin-top: -60px;
-  padding-left: 10px;
+// Star component with upward animation
+const Star = ({ shadows, duration, size }) => (
+  <div
+    className={`absolute top-0 left-0 rounded-full bg-transparent`}
+    style={{
+      width: '1px',
+      height: '1px',
+      boxShadow: shadows,
+      animation: `upward ${duration}s linear infinite`,
+    }}
+  >
+    <div
+      style={{
+        content: "''",
+        position: 'absolute',
+        top: '600px',
+        width: `${size}px`,
+        height: `${size}px`,
+        background: 'transparent',
+        boxShadow: shadows,
+      }}
+    />
+  </div>
+);
 
-  span {
-    letter-spacing: 10px;
-    background: linear-gradient(white, #38495a);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-`;
+const StarryBackground = ({ fill }) => {
+  const starShadows1 = useMemo(() => generateBoxShadows(700, fill), [fill]);
+  const starShadows2 = useMemo(() => generateBoxShadows(200, fill), [fill]);
+  const starShadows3 = useMemo(() => generateBoxShadows(100, fill), [fill]);
 
-const Container = styled.div`
-  overflow: hidden;
-  height: 100dvh;
-  background: radial-gradient(ellipse at top, #1b2735 0%, #090a0f 90%);
-`;
-const StarryBackground = ({fill}) => {
-    // Utility function for generating multiple box-shadow values
-    const generateBoxShadows = (n) => {
-      let shadows = [];
-      for (let i = 0; i < n; i++) {
-        shadows.push(`${Math.floor(Math.random() * 2000)}px ${Math.floor(Math.random() * 2000)}px ${fill}`);
-      }
-      return shadows.join(', ');
-    };
   return (
     <>
       <Head>
@@ -78,20 +51,30 @@ const StarryBackground = ({fill}) => {
           rel="stylesheet"
           type="text/css"
         />
+        <style>
+          {`
+            @keyframes upward {
+              0% { transform: translateY(0); }
+              100% { transform: translateY(-2000px); }
+            }
+          `}
+        </style>
       </Head>
-      <Container>
-        <Stars shadows={generateBoxShadows(700)} duration={50} size={1} />
-        <Stars shadows={generateBoxShadows(200)} duration={100} size={2} />
-        <Stars shadows={generateBoxShadows(100)} duration={150} size={3} />
-        <Title className='flex flex-col justify-center items-center'>
-          <span>iSANS ORIGINAL</span>
+      <div className="relative overflow-hidden h-[100vh] bg-gradient-to-b from-[#1b2735] to-[#090a0f]">
+        <Star shadows={starShadows1} duration={50} size={1} />
+        <Star shadows={starShadows2} duration={100} size={2} />
+        <Star shadows={starShadows3} duration={150} size={3} />
+
+        <div className="absolute top-1/2 left-0 right-0 text-center font-light text-[50px] transform -translate-y-1/2 px-2">
+          <span className="bg-gradient-to-b from-white to-[#38495a] bg-clip-text text-transparent tracking-[10px]">
+            iSANS ORIGINAL
+          </span>
           <br />
-          {/* <span>PARALLAX PIXEL STARS</span> */}
-          <p className='-translate-y-20 z-20'>
-        <ButtonTwo buttonValue={'Verify Authenticty'} iconValue={(<FaQrcode size={20}/>)}/>
+          <p className=" z-20 flex justify-center">
+            <ButtonTwo buttonValue="Verify Authenticity" iconValue={<FaQrcode size={20} />} />
           </p>
-        </Title>
-      </Container>
+        </div>
+      </div>
     </>
   );
 };

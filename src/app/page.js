@@ -15,12 +15,12 @@ export default function Home() {
      <DynamicSVG
       gradient={{ start: '#A9A9A9', end: '#808080' }} // Customize gradient
       size={{ width: 900, height: 600 }} // Set size
-      className="absolute right-0 translate-x-80 -translate-y-64 top-0 -rotate-45 transition"
+      className="absolute z-10 right-0 translate-x-80 -translate-y-64 top-0 -rotate-45 transition"
     />
     <DynamicSVG
       gradient={{ start: '#808080', end: '#A9A9A9' }} // Customize gradient
       size={{ width: 900, height: 600 }} // Set size
-      className="absolute left-0 bottom-0 -translate-x-24 translate-y-64 w-1/4 -rotate-45 transition"
+      className="absolute z-10 left-0 bottom-0 -translate-x-24 translate-y-64 w-1/4 -rotate-45 transition"
     />
     <StarryBackground fill={"#ededed"}/>
       <Image src={Curve} alt="lines" className="absolute hidden md:flex left-0 top-1/2"/>
