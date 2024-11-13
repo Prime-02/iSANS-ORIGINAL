@@ -84,7 +84,7 @@ const StarryBackground = ({fill}) => {
         <Stars shadows={generateBoxShadows(200)} duration={100} size={2} />
         <Stars shadows={generateBoxShadows(100)} duration={150} size={3} />
         <Title className='flex flex-col justify-center items-center'>
-          <span>ISANS ORIGINAL</span>
+          <span>iSANS ORIGINAL</span>
           <br />
           {/* <span>PARALLAX PIXEL STARS</span> */}
           <p className='-translate-y-20 z-20'>
