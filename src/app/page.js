@@ -10,8 +10,8 @@ import StarryBackground from "@/components/reusables/stars/StarryBackground";
 export default function Home() {
   return (
     <>
-    <div className="w-full h-auto overflow-hidden">
-  <div className="relative h-auto w-[100%]  overflow-x-hidden">
+    <div className="w-full h-auto">
+  <div className="relative h-screen w-[100%]  overflow-hidden">
      <DynamicSVG
       gradient={{ start: '#A9A9A9', end: '#808080' }} // Customize gradient
       size={{ width: 900, height: 600 }} // Set size
@@ -42,6 +42,7 @@ export default function Home() {
       <span className="h-full w-[0.5px] bg-gray-700 relative"><span className="bg-gradient-to-t from-white w-[2px] h-14 rounded-full absolute left-0 right-0 bottom-5"></span></span>
     </div>
   </div>
+  
     </div>
     </>
   );

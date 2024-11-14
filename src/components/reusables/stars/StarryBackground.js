@@ -3,6 +3,7 @@ import Head from 'next/head';
 import { useMemo } from 'react';
 import { ButtonTwo } from '../buttons/Buttons';
 import { FaQrcode } from 'react-icons/fa6';
+import { motion } from 'framer-motion';
 
 // Utility function for generating multiple box-shadow values
 const generateBoxShadows = (n, fill) => {
@@ -64,18 +65,34 @@ const StarryBackground = ({ fill }) => {
         <Star shadows={starShadows1} duration={50} size={1} />
         <Star shadows={starShadows2} duration={100} size={2} />
         <Star shadows={starShadows3} duration={150} size={3} />
-        <div className="absolute top-1/2 left-0 right-0 text-center font-light text-[50px] transform -translate-y-1/2 px-2">
-          <span className="bg-gradient-to-b from-white to-[#38495a] bg-clip-text text-transparent tracking-[10px]">
+
+        {/* Animated Text Container */}
+        <div
+          className="text-center font-light text-[50px] transform flex flex-col justify-center items-center w-full h-full"
+        >
+          <motion.span className="bg-gradient-to-b from-white to-[#38495a] bg-clip-text text-transparent tracking-[10px]"
+            initial={{ y: 50, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 1, ease: 'easeIn' }}
+          >
             iSANS ORIGINAL
-          </span>
-          <p className='text-white text-sm text-center pb-5'>
-          Shop the latest trends with confidence. Every item is 100% authentic,
-          <br />
-           verified by our trusted process. Discover style you can trust—elevate your wardrobe today.
-          </p>
-          <p className="z-20 flex justify-center">
+          </motion.span>
+          <motion.p className='text-white text-sm text-center pb-5'
+            initial={{ y: 50, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 2, ease: 'easeOut' }}
+          >
+            Shop the latest trends with confidence. Every item is 100% authentic,
+            <br />
+            verified by our trusted process. Discover style you can trust—elevate your wardrobe today.
+          </motion.p>
+          <motion.p className="z-20 flex justify-center"
+            initial={{ y: 50, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 3, ease: 'easeOut' }}
+          >
             <ButtonTwo buttonValue="Verify Authenticity" iconValue={<FaQrcode size={20} />} />
-          </p>
+          </motion.p>
         </div>
       </div>
     </>
