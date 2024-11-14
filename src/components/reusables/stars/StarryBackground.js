@@ -87,7 +87,7 @@ const StarryBackground = ({ fill }) => {
             iSANS ORIGINAL
           </motion.span>
           <motion.p
-            className="text-white text-sm text-center pb-5"
+            className="text-white text-sm text-center px-3 pb-5"
             whileInView={{opacity: 1, y:0}}
             initial={{opacity:0, y:-100}}
             transition={{duration: 1}}

@@ -79,7 +79,7 @@ const Footer = () => {
                 <span className="absolute left-0 bottom-[-15px] w-[50px] h-[2px] bg-[#ff5e14]"></span>
               </h3>
               <p className="text-[#7e7e7e] text-sm mb-6">
-                Don’t miss to subscribe to our new feeds, kindly fill the form below.
+                {`Don’t`} miss to subscribe to our new feeds, kindly fill the form below.
               </p>
               <form action="#" className="relative flex">
                 <input
@@ -103,7 +103,7 @@ const Footer = () => {
             <p className="text-[#878787] text-sm">
               Copyright &copy; 2024, All Right Reserved{" "}
               <a  className="text-[#ff5e14]">
-                Anup
+                iSANS ORIGINAL
               </a>
             </p>
           </div>

@@ -46,7 +46,7 @@ export default function Home() {
       <span className="h-full w-[0.5px] bg-gray-700 relative"><span className="bg-gradient-to-t from-white w-[2px] h-14 rounded-full absolute left-0 right-0 bottom-5"></span></span>
     </div>
       </div>
-
+      <div className="py-20 md:py-0">
       <section id="sectionRef1" className="w-full md:w-[80%] mx-auto h-screen flex flex-col md:flex-row md:justify-center border-b border-gray-500 items-center px-5 gap-x-10">
         <motion.p className="text-2xl md:text-4xl font-semibold w-[1/3]  py-12 md:py-0 "
             whileInView={{opacity: 1, y:-80}}
@@ -77,6 +77,7 @@ export default function Home() {
             <span className="text-gray-500 cursor-pointer" onClick={()=>setSeeMore(!seeMore)}> See {!seeMore ? 'More...': 'Less'}</span>
         </motion.article>
       </section>
+      </div>
     </div>
   );
 }
