@@ -1,19 +1,24 @@
-import React from 'react'
-import { ButtonOne } from '../reusables/buttons/Buttons'
-import { IoMdCart } from 'react-icons/io'
+'use client'
 
-const Navbar = () => {
+import React from 'react';
+import { ButtonOne } from '../reusables/buttons/Buttons';
+import { IoMdCart } from 'react-icons/io';
+
+const Navbar = ({ scrollToSection }) => {
   return (
-    <div className='fixed top-0 w-full pt-6  flex flex-row justify-between z-10 text-white px-10 items-center'>
-        <span className='hover:text-neutral-500 cursor-pointer transition'>logo</span>
-        <span className='hover:text-neutral-500 cursor-pointer transition capitalize'>
-            Who we are
-        </span>
-        <span>
-            <ButtonOne buttonValue={'Shop'} iconValue={(<IoMdCart size={18}/>)}/>
-        </span>
+    <div className='fixed top-0 w-full pt-6 flex flex-row justify-between z-20 text-gray-500 font-semibold backdrop-blur-lg px-10 items-center'>
+      <span className='hover:text-neutral-500 cursor-pointer transition'>logo</span>
+      <span
+        className='hover:text-neutral-600 cursor-pointer transition capitalize'
+        onClick={() => scrollToSection('sectionRef1')}
+      >
+        Who we are
+      </span>
+      <span>
+        <ButtonOne buttonValue={'Shop'} iconValue={<IoMdCart size={18} />} />
+      </span>
     </div>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

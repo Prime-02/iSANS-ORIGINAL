@@ -1,17 +1,22 @@
-// app/layout.js (Global Client Layout)
-"use client";
+'use client'
 
-import Image from 'next/image';
-import { usePathname, useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
-
+import Navbar from '@/components/navbar/Navbar';
 
 export default function ClientLayout({ children }) {
-
+  const scrollToSection = (section) => {
+    const targetSection = document.getElementById(section);
+    if (targetSection) {
+      console.log(`Scrolling to ${section}`);
+      targetSection.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      console.log(`${section} not found`);
+    }
+  };
 
   return (
     <>
-     
+      <Navbar scrollToSection={scrollToSection} />
+      {children}
     </>
   );
 }

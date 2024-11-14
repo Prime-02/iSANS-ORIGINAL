@@ -1,9 +1,9 @@
 // components/StarryBackground.js
 import Head from 'next/head';
-import { useMemo } from 'react';
+import { useMemo, useRef } from 'react';
 import { ButtonTwo } from '../buttons/Buttons';
 import { FaQrcode } from 'react-icons/fa6';
-import { motion } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 
 // Utility function for generating multiple box-shadow values
 const generateBoxShadows = (n, fill) => {
@@ -44,6 +44,16 @@ const StarryBackground = ({ fill }) => {
   const starShadows2 = useMemo(() => generateBoxShadows(200, fill), [fill]);
   const starShadows3 = useMemo(() => generateBoxShadows(100, fill), [fill]);
 
+  // Refs for scroll animations
+  const titleRef = useRef(null);
+  const subtitleRef = useRef(null);
+  const buttonRef = useRef(null);
+
+  // Track if each element is in view
+  const titleInView = useInView(titleRef, { once: true });
+  const subtitleInView = useInView(subtitleRef, { once: true });
+  const buttonInView = useInView(buttonRef, { once: true });
+
   return (
     <>
       <Head>
@@ -67,29 +77,30 @@ const StarryBackground = ({ fill }) => {
         <Star shadows={starShadows3} duration={150} size={3} />
 
         {/* Animated Text Container */}
-        <div
-          className="text-center font-light text-[50px] transform flex flex-col justify-center items-center w-full h-full"
-        >
-          <motion.span className="bg-gradient-to-b from-white to-[#38495a] bg-clip-text text-transparent tracking-[10px]"
-            initial={{ y: 50, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 1, ease: 'easeIn' }}
+        <div className="text-center font-light text-[50px] flex flex-col justify-center items-center w-full h-full">
+          <motion.span
+            className="bg-gradient-to-b from-white to-[#38495a] bg-clip-text text-transparent tracking-[10px]"
+            whileInView={{opacity: 1, y:0}}
+            initial={{opacity:0, y:-100}}
+            transition={{duration: 1.5}}
           >
             iSANS ORIGINAL
           </motion.span>
-          <motion.p className='text-white text-sm text-center pb-5'
-            initial={{ y: 50, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 2, ease: 'easeIn' }}
+          <motion.p
+            className="text-white text-sm text-center pb-5"
+            whileInView={{opacity: 1, y:0}}
+            initial={{opacity:0, y:-100}}
+            transition={{duration: 1}}
           >
             Shop the latest trends with confidence. Every item is 100% authentic,
             <br />
             verified by our trusted process. Discover style you can trust—elevate your wardrobe today.
           </motion.p>
-          <motion.p className="z-20 flex justify-center"
-            initial={{ y: 50, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 2.5, ease: 'easeIn' }}
+          <motion.p
+            className="z-20 flex justify-center"
+            whileInView={{opacity: 1, y:0}}
+            initial={{opacity:0, y:-100}}
+            transition={{duration: 0.5}}
           >
             <ButtonTwo buttonValue="Verify Authenticity" iconValue={<FaQrcode size={20} />} />
           </motion.p>
