@@ -80,7 +80,7 @@ const StarryBackground = ({ fill }) => {
           <motion.p className='text-white text-sm text-center pb-5'
             initial={{ y: 50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 2, ease: 'easeOut' }}
+            transition={{ duration: 2, ease: 'easeIn' }}
           >
             Shop the latest trends with confidence. Every item is 100% authentic,
             <br />
@@ -89,7 +89,7 @@ const StarryBackground = ({ fill }) => {
           <motion.p className="z-20 flex justify-center"
             initial={{ y: 50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 3, ease: 'easeOut' }}
+            transition={{ duration: 2.5, ease: 'easeIn' }}
           >
             <ButtonTwo buttonValue="Verify Authenticity" iconValue={<FaQrcode size={20} />} />
           </motion.p>
