@@ -8,6 +8,7 @@ import StarryBackground from "@/components/reusables/stars/StarryBackground";
 import { motion } from "framer-motion";
 import { Wwa } from "@/components/index";
 import { useState } from "react";
+import BentoBox from "@/components/bento/BentoBox";
 
 export default function Home() {
   const [seeMore, setSeeMore] = useState()
@@ -47,7 +48,7 @@ export default function Home() {
     </div>
       </div>
       <div className="py-20 md:py-0">
-      <section id="sectionRef1" className="w-full md:w-[80%] mx-auto h-screen flex flex-col md:flex-row md:justify-center border-b border-gray-500 items-center px-5 gap-x-10">
+      <section id="sectionRef1" className="w-full md:w-[80%] mx-auto h-auto md:h-screen flex flex-col md:flex-row md:justify-center border-b border-gray-500 items-center px-5 gap-x-10">
         <motion.p className="text-2xl md:text-4xl font-semibold w-[1/3]  py-12 md:py-0 "
             whileInView={{opacity: 1, y:-80}}
             initial={{opacity:0, y:0}}
@@ -74,9 +75,15 @@ export default function Home() {
               </>
             )
            }
-            <span className="text-gray-500 cursor-pointer" onClick={()=>setSeeMore(!seeMore)}> See {!seeMore ? 'More...': 'Less'}</span>
+            <span className=" cursor-pointer" onClick={()=>setSeeMore(!seeMore)}> See {!seeMore ? 'More...': 'Less'}</span>
         </motion.article>
       </section>
+      </div>
+      <div>
+        <h1 className="text-center text-3xl  py-12">
+           Our Products 
+        </h1>
+        <BentoBox/>
       </div>
     </div>
   );
