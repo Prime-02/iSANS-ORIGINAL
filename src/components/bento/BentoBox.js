@@ -12,7 +12,7 @@ const BentoBox = () => {
         {
           BentoImg.map((img, ind) => (
             <div className={`${styles.imageWrapper} overflow-hidden rounded-xl`} key={ind}>
-              <Image src={img.img} className={`${styles.image} hover:scale-110 transition duration-300`} alt={`image ${ind + 1}`} loading='lazy'/>
+              <Image src={img.img} className={`${styles.image} hover:scale-110 transition duration-300`} alt={`image ${ind + 1}`} loading='lazy'/> 
             </div>
           ))
         }

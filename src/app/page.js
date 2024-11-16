@@ -9,12 +9,15 @@ import { motion } from "framer-motion";
 import { Wwa } from "@/components/index";
 import { useState } from "react";
 import BentoBox from "@/components/bento/BentoBox";
+import { FaPlus, FaShirt } from "react-icons/fa6";
 
 export default function Home() {
   const [seeMore, setSeeMore] = useState()
 
   return (
-    <div className="w-full h-auto">
+    <div className="w-full h-auto relative ">
+      <span className="absolute bg-gray-500 h-full w-[0.2px] right-3"></span>
+      <span className="absolute bg-gray-500 h-full w-[0.2px] left-3"></span>
       <div className="relative h-screen w-[100%]  overflow-hidden">
         {/* Background SVGs and other content */}
         <DynamicSVG
@@ -47,8 +50,12 @@ export default function Home() {
       <span className="h-full w-[0.5px] bg-gray-700 relative"><span className="bg-gradient-to-t from-white w-[2px] h-14 rounded-full absolute left-0 right-0 bottom-5"></span></span>
     </div>
       </div>
-      <div className="py-20 md:py-0">
-      <section id="sectionRef1" className="w-full md:w-[80%] mx-auto h-auto md:h-screen flex flex-col md:flex-row md:justify-center border-b border-gray-500 items-center px-5 gap-x-10">
+      <div className="py-20 md:py-0 relative ">
+        <span className="absolute w-full"></span>
+      <section id="sectionRef1" className="w-full h-auto md:h-screen flex flex-col md:flex-row md:justify-center items-center px-5 gap-x-10 relative">
+      <span className="absolute bg-gray-500 w-full h-[0.2px] left-3 bottom-0"></span>
+      <span className="absolute flex items-center justify-center  w-6 h-6 left-3 rounded-full -translate-x-3 translate-y-3 bottom-0"><FaPlus/></span>
+      <span className="absolute  flex items-center justify-center w-6 h-6 right-3 rounded-full translate-x-3  translate-y-3 bottom-0"><FaPlus/></span>
         <motion.p className="text-2xl md:text-4xl font-semibold w-[1/3]  py-12 md:py-0 "
             whileInView={{opacity: 1, y:-80}}
             initial={{opacity:0, y:0}}
@@ -79,7 +86,7 @@ export default function Home() {
         </motion.article>
       </section>
       </div>
-      <div>
+      <div className="">
         <h1 className="text-center text-3xl  py-12">
            Our Products 
         </h1>
