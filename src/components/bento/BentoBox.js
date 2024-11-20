@@ -4,7 +4,7 @@ import Image from 'next/image'
 
 const BentoBox = () => {
   return (
-      <div className='flex w-full items-center  h-[132px] overflow-clip mb-10'>
+      <div className='flex w-full items-center justify-center mb-10'>
         {
           BentoImg.map((img, ind) => (
             <div className={` overflow-hidden rounded-xl `} key={ind}>
