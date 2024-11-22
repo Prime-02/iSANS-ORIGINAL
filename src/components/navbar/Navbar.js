@@ -1,6 +1,7 @@
 'use client'
 
 import React from 'react';
+import Link from 'next/link';
 import { ButtonOne } from '../reusables/buttons/Buttons';
 import { IoMdCart } from 'react-icons/io';
 
@@ -15,7 +16,10 @@ const Navbar = ({ scrollToSection }) => {
         Who we are
       </span>
       <span>
-        <ButtonOne buttonValue={'Shop'} iconValue={<IoMdCart size={18} />} />
+      <Link href="https://sub-domain-two.vercel.app" target="_blank" rel="noopener noreferrer">
+    <ButtonOne buttonValue={'Shop'} iconValue={<IoMdCart size={18} />} />
+</Link>
+
       </span>
     </div>
   );
